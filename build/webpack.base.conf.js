@@ -4,7 +4,6 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 const { VueLoaderPlugin } = require('vue-loader')
-const vuxLoader = require('vux-loader')
 
 // 多页面入口
 var Mutil = require('./mutil')
@@ -109,5 +108,4 @@ const baseWepback = {
     new VueLoaderPlugin()
   ]
 }
-
 module.exports = baseWepback
