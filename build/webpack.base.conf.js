@@ -24,7 +24,7 @@ const createLintingRule = () => ({
     emitWarning: !config.dev.showEslintErrorsInOverlay
   }
 })
-console.log('entries', entries)
+// console.log('entries', entries)
 const baseWepback = {
   mode : 'development',
   context: path.resolve(__dirname, '../'),
