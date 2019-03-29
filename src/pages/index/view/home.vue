@@ -7,13 +7,13 @@
      <input v-model="name">
      <input v-model="sex">
 
-     {{this.$store.state.member.eachmember}}
+     {{this.eachmember}}
   </div>
 </template>
 
 <script>
-import {mapState, mapActions} from 'vuex'
-import {mapGettersMyMeber} from '../store/modules/self-getters.js'
+// import {mapActions} from 'vuex'
+import {mapGettersMyMeber, mapState, mapActions} from '../store/modules/self-getters.js'
 export default {
   data () {
     return {
@@ -23,7 +23,9 @@ export default {
   },
   computed: {
     ...mapState({
-      memeberInfo: (state) => {
+      memeberInfo: (state, getters, actions) => {
+        console.log('有出来吗', getters)
+        console.log('有出来吗actionsactions', actions)
         return state.member.memeberInfo
       },
       eachmember: (state) => {
@@ -42,6 +44,7 @@ export default {
     ]),
     addId () {
       this.storeMember({id: ++this.id})
+      this.name = ++this.id
     }
   }
 }
