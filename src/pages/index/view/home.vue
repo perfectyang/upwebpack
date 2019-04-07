@@ -8,28 +8,44 @@
      <input v-model="sex">
 
      {{this.eachmember}}
+     {{count}}
+    <button @click="addCount">add</button>
+
   </div>
 </template>
 
 <script>
 // import {mapActions} from 'vuex'
 import {mapGettersMyMeber, mapState, mapActions} from '../store/modules/self-getters.js'
+// import {deepCopy} from 'index/utils/deep-copy'
 export default {
   data () {
     return {
       id: 1,
-      mid: ''
+      mid: '',
+      testObj: {
+        name: 111,
+        inner: {
+          sex: 'male',
+          list: [
+            {
+              option_list: 'ssss'
+            }
+          ]
+        }
+      }
     }
   },
   computed: {
     ...mapState({
       memeberInfo: (state, getters, actions) => {
-        console.log('有出来吗', getters)
-        console.log('有出来吗actionsactions', actions)
         return state.member.memeberInfo
       },
       eachmember: (state) => {
         return state.member.eachmember
+      },
+      count: (state) => {
+        return state.member.count
       }
     }),
     ...mapGettersMyMeber([
@@ -40,12 +56,16 @@ export default {
   methods: {
     ...mapActions([
       'storeMember',
-      'updateEachmember'
+      'updateEachmember',
+      'addCount'
     ]),
     addId () {
       this.storeMember({id: ++this.id})
       this.name = ++this.id
     }
+  },
+  mounted () {
+    console.log(this)
   }
 }
 </script>

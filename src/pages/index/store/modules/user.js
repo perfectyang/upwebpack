@@ -16,7 +16,7 @@ const actions = {
 // 行为响应动作
 const mutations = {
   storeUser (state, params) {
-    console.log('params', params)
+    console.log('params1111', params)
     state.userInfo.push(params)
   }
 }
