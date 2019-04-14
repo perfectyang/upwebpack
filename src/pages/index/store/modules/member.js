@@ -2,7 +2,8 @@ import Vue from 'vue'
 // state
 const state = {
   memeberInfo: [],
-  eachmember: {}
+  eachmember: {},
+  count: 1
 }
 // actions
 
@@ -12,6 +13,9 @@ const actions = {
   },
   updateEachmember ({ dispatch, commit }, params) {
     commit('updateEachmember', params)
+  },
+  addCount ({commit}, params) {
+    commit('addCount', params)
   }
 }
 
@@ -19,12 +23,16 @@ const actions = {
 // 行为响应动作
 const mutations = {
   storeMember (state, params) {
-    console.log('aaa', params)
+    console.log('123123', params)
     state.memeberInfo.push(params)
   },
   updateEachmember (state, params) {
-    // state.eachmember[params.key] = params.value
+    // state.eachmember[paparamsrams.key] = params.value
+    console.log('paramsparamsparams', params)
     Vue.set(state.eachmember, params.key, params.value)
+  },
+  addCount (state, params) {
+    state.count += 20
   }
 }
 
